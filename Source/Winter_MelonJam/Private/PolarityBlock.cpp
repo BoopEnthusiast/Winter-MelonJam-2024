@@ -83,10 +83,9 @@ void APolarityBlock::ApplyPolarityForce(float DeltaTime)
 		Direction.Normalize();
 		float ForceMagnitude = FMath::Lerp(PullStrength, 0.0f, Distance / Radius);
 
-		UCharacterMovementComponent* MovementComponent = PolarityCharacter->GetCharacterMovement();
-		if (MovementComponent)
+		
+		if (UCharacterMovementComponent* MovementComponent = PolarityCharacter->GetCharacterMovement())
 		{
-			UE_LOG(LogTemp, Warning, TEXT("%f"), ForceMagnitude * DeltaTime);
 			MovementComponent->AddForce(Direction * ForceMagnitude * DeltaTime * 10000.0);
 		}
 	}
@@ -102,10 +101,10 @@ void APolarityBlock::UpdatePolarity()
 		BlockMesh->SetMaterial(0, BlueMaterial);
 		break;
 	case EPolarity::Negative:
-		BlockMesh->SetMaterial(1, RedMaterial);
+		BlockMesh->SetMaterial(0, RedMaterial);
 		break;
 	case EPolarity::Neutral:
-		BlockMesh->SetMaterial(1, GreyMaterial);
+		BlockMesh->SetMaterial(0, GreyMaterial);
 		break;
 	}
 }
