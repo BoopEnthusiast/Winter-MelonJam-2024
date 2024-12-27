@@ -1,0 +1,879 @@
+{
+	"folders": [
+		{
+			"name": "Winter_MelonJam",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off",
+		"terminal.integrated.env.linux": {
+			"PATH": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64:${env:PATH}",
+			"DOTNET_ROOT": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64",
+			"DOTNET_HOST_PATH": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64/dotnet",
+			"DOTNET_MULTILEVEL_LOOKUP": "0",
+			"DOTNET_ROLL_FORWARD": "LatestMajor"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Winter_MelonJam Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Test",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Test",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam Linux Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Test",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Shipping",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Shipping",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam Linux Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam Linux Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"Linux",
+					"Shipping",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam LinuxArm64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam LinuxArm64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam LinuxArm64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Test",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Test",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam LinuxArm64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Test",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Shipping",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Shipping",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJam LinuxArm64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJam LinuxArm64 Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJam",
+					"LinuxArm64",
+					"Shipping",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJamEditor Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"Debug",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJamEditor Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"DebugGame",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"Winter_MelonJamEditor Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			},
+			{
+				"label": "Winter_MelonJamEditor Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"Winter_MelonJamEditor",
+					"Linux",
+					"Development",
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch Winter_MelonJam (Debug)",
+				"request": "launch",
+				"program": "/home/boop/Documents/Unreal Projects/Winter_MelonJam/Binaries/Linux/UnrealGame-Linux-Debug",
+				"preLaunchTask": "Winter_MelonJam Linux Debug Build",
+				"args": [
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch Winter_MelonJam (DebugGame)",
+				"request": "launch",
+				"program": "/home/boop/Documents/Unreal Projects/Winter_MelonJam/Binaries/Linux/UnrealGame-Linux-DebugGame",
+				"preLaunchTask": "Winter_MelonJam Linux DebugGame Build",
+				"args": [
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch Winter_MelonJam (Development)",
+				"request": "launch",
+				"program": "/home/boop/Documents/Unreal Projects/Winter_MelonJam/Binaries/Linux/UnrealGame",
+				"preLaunchTask": "Winter_MelonJam Linux Development Build",
+				"args": [
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch Winter_MelonJam (Test)",
+				"request": "launch",
+				"program": "/home/boop/Documents/Unreal Projects/Winter_MelonJam/Binaries/Linux/UnrealGame-Linux-Test",
+				"preLaunchTask": "Winter_MelonJam Linux Test Build",
+				"args": [
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch Winter_MelonJam (Shipping)",
+				"request": "launch",
+				"program": "/home/boop/Documents/Unreal Projects/Winter_MelonJam/Binaries/Linux/UnrealGame-Linux-Shipping",
+				"preLaunchTask": "Winter_MelonJam Linux Shipping Build",
+				"args": [
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch Winter_MelonJamEditor (Debug)",
+				"request": "launch",
+				"program": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/Linux/UnrealEditor-Linux-Debug",
+				"preLaunchTask": "Winter_MelonJamEditor Linux Debug Build",
+				"args": [
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject"
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch Winter_MelonJamEditor (DebugGame)",
+				"request": "launch",
+				"program": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/Linux/UnrealEditor-Linux-DebugGame",
+				"preLaunchTask": "Winter_MelonJamEditor Linux DebugGame Build",
+				"args": [
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject"
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch Winter_MelonJamEditor (Development)",
+				"request": "launch",
+				"program": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/Linux/UnrealEditor",
+				"preLaunchTask": "Winter_MelonJamEditor Linux Development Build",
+				"args": [
+					"/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject"
+				],
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1",
+				"type": "cppdbg",
+				"visualizerFile": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Linux Development Build",
+				"program": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Build/BatchFiles/RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=/home/boop/Documents/Unreal Projects/Winter_MelonJam/Winter_MelonJam.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"env": {
+					"PATH": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64:${env:PATH}",
+					"DOTNET_ROOT": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64",
+					"DOTNET_HOST_PATH": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1/Engine/Binaries/ThirdParty/DotNet/8.0.300/linux-x64/dotnet",
+					"DOTNET_MULTILEVEL_LOOKUP": "0",
+					"DOTNET_ROLL_FORWARD": "LatestMajor"
+				},
+				"console": "internalConsole",
+				"internalConsoleOptions": "openOnSessionStart",
+				"stopAtEntry": false,
+				"cwd": "/home/boop/Packages/Linux_Unreal_Engine_5.5.1"
+			}
+		]
+	}
+}
