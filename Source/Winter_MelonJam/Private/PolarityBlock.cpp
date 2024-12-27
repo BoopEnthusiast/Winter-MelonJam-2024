@@ -55,17 +55,12 @@ void APolarityBlock::Tick(float const DeltaTime)
 
 void APolarityBlock::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if(GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Found player!"));
 	if (ACharacter* Character = Cast<ACharacter>(OtherActor))
 		AffectedPlayers.AddUnique(Character);
 }
 
 void APolarityBlock::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Lost player!"));
-	if(GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Lost player!"));
 	if (ACharacter* Character = Cast<ACharacter>(OtherActor))
 		AffectedPlayers.Remove(Character);
 }
@@ -78,7 +73,7 @@ void APolarityBlock::ApplyPolarityForce(float DeltaTime)
 		if (!PolarityCharacter)
 			continue;
 
-		if (PolarityCharacter->bIsBluePolarity == bIsBluePolarity)
+		if (PolarityCharacter->Polarity != Polarity || Polarity == EPolarity::Neutral)
 			continue;
 		
 		FVector Direction = GetActorLocation() - Character->GetActorLocation();
@@ -101,14 +96,16 @@ void APolarityBlock::ApplyPolarityForce(float DeltaTime)
 void APolarityBlock::UpdatePolarity()
 {
 	if (!BlockMesh) return;
-	if (bIsBluePolarity)
+	switch (Polarity)
 	{
-		if (BlueMaterial)
-			BlockMesh->SetMaterial(0, BlueMaterial);
-	}
-	else
-	{
-		if (RedMaterial)
-			BlockMesh->SetMaterial(0, RedMaterial);
+	case EPolarity::Positive:
+		BlockMesh->SetMaterial(0, BlueMaterial);
+		break;
+	case EPolarity::Negative:
+		BlockMesh->SetMaterial(1, RedMaterial);
+		break;
+	case EPolarity::Neutral:
+		BlockMesh->SetMaterial(1, GreyMaterial);
+		break;
 	}
 }

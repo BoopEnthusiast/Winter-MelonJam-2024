@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/SphereComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "EPolarity.h"
 #include "PolarityBlock.generated.h"
 
 
@@ -41,7 +42,7 @@ public:
 	float MaxPullDistance = 2000.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
-	bool bIsBluePolarity = true;
+	EPolarity Polarity = EPolarity::Neutral;
 
 	// Materials
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
@@ -49,6 +50,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
 	UMaterialInterface* RedMaterial;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
+	UMaterialInterface* GreyMaterial;
 
 	// Update Polarity
 	UFUNCTION(BlueprintCallable, Category = "Pull Settings")

@@ -70,7 +70,8 @@ void AWinter_MelonJamCharacter::SetupPlayerInputComponent(UInputComponent* Playe
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AWinter_MelonJamCharacter::Look);
 
 		// Changing Polarity
-		EnhancedInputComponent->BindAction(ChangePolarityAction, ETriggerEvent::Started, this, &AWinter_MelonJamCharacter::ChangePolarity);
+		EnhancedInputComponent->BindAction(BluePolarityAction, ETriggerEvent::Started, this, &AWinter_MelonJamCharacter::BluePolarity);
+		EnhancedInputComponent->BindAction(RedPolarityAction, ETriggerEvent::Started, this, &AWinter_MelonJamCharacter::RedPolarity);
 	}
 	else
 	{
@@ -105,25 +106,42 @@ void AWinter_MelonJamCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
-void AWinter_MelonJamCharacter::ChangePolarity(const FInputActionValue& Value)
+void AWinter_MelonJamCharacter::BluePolarity(const FInputActionValue& Value)
 {
-	UE_LOG(LogTemplateCharacter, Display, TEXT("Changing Polarity"));
-	bIsBluePolarity = !bIsBluePolarity;
+	if (Polarity == EPolarity::Positive)
+		Polarity = EPolarity::Neutral;
+	else
+	{
+		Polarity = EPolarity::Positive;
+	}
+	UpdatePolarity();
+}
+
+void AWinter_MelonJamCharacter::RedPolarity(const FInputActionValue& Value)
+{
+	if (Polarity == EPolarity::Negative)
+		Polarity = EPolarity::Neutral;
+	else
+	{
+		Polarity = EPolarity::Negative;
+	}
 	UpdatePolarity();
 }
 
 void AWinter_MelonJamCharacter::UpdatePolarity()
 {
 	if (!Mesh1P) return;
-	if (bIsBluePolarity)
+	switch (Polarity)
 	{
-		if (BlueMaterial)
-			Mesh1P->SetMaterial(0, BlueMaterial);
-	}
-	else
-	{
-		if (RedMaterial)
-			Mesh1P->SetMaterial(0, RedMaterial);
+	case EPolarity::Positive:
+		Mesh1P->SetMaterial(0, BlueMaterial);
+		break;
+	case EPolarity::Negative:
+		Mesh1P->SetMaterial(0, RedMaterial);
+		break;
+	case EPolarity::Neutral:
+		Mesh1P->SetMaterial(0, GreyMaterial);
+		break;
 	}
 }
 

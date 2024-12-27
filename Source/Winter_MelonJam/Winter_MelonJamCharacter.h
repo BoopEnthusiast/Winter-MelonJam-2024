@@ -6,6 +6,7 @@
 #include "InputActionValue.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "EPolarity.h"
 #include "Winter_MelonJamCharacter.generated.h"
 
 class UInputComponent;
@@ -47,7 +48,10 @@ class AWinter_MelonJamCharacter : public ACharacter
 	class UInputAction* LookAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	class UInputAction* ChangePolarityAction;
+	class UInputAction* BluePolarityAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* RedPolarityAction;
 	
 public:
 	AWinter_MelonJamCharacter();
@@ -60,7 +64,8 @@ protected:
 	void Look(const FInputActionValue& Value);
 
 	/** Called for polarity change input */
-	void ChangePolarity(const FInputActionValue& Value);
+	void BluePolarity(const FInputActionValue& Value);
+	void RedPolarity(const FInputActionValue& Value);
 
 protected:
 	// APawn interface
@@ -77,7 +82,7 @@ public:
 public:
 	// Is blue polarity
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
-	bool bIsBluePolarity = true;
+	EPolarity Polarity = EPolarity::Neutral;
 	
 	// Materials
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
@@ -86,6 +91,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
 	UMaterialInterface* RedMaterial;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
+	UMaterialInterface* GreyMaterial;
+	
 	// Update Polarity
 	UFUNCTION(BlueprintCallable, Category = "Pull Settings")
 	void UpdatePolarity();
