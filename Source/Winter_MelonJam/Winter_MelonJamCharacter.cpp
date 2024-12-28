@@ -155,12 +155,13 @@ void AWinter_MelonJamCharacter::UpdatePolarity()
 
 void AWinter_MelonJamCharacter::OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode)
 {
+	Super::OnMovementModeChanged(PrevMovementMode, PreviousCustomMode);
+	
 	if (PrevMovementMode == MOVE_Walking)
 	{
 		if (GetWorldTimerManager().IsTimerActive(RespawnSetting))
 		{
 			GetWorldTimerManager().ClearTimer(RespawnSetting);
-			UE_LOG(LogTemp, Warning, TEXT("Timer Stopped"));
 		}	
 	}
 	else if (PrevMovementMode == MOVE_Falling)

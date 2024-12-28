@@ -91,8 +91,6 @@ protected:
 	virtual void BeginPlay() override;
 	
 	void Respawn();
-
-	void PrintRespawnTransform();
 	
 public:
 	/** Returns Mesh1P subobject **/
