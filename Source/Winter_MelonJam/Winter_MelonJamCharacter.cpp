@@ -143,5 +143,6 @@ void AWinter_MelonJamCharacter::UpdatePolarity()
 		Mesh1P->SetMaterial(0, GreyMaterial);
 		break;
 	}
+	UpdateCrosshairPolarity();
 }
 

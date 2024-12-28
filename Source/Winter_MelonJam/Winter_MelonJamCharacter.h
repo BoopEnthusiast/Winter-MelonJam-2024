@@ -7,6 +7,8 @@
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
 #include "EPolarity.h"
+#include "Components/StaticMeshComponent.h"
+#include "Components/WidgetComponent.h"
 #include "Winter_MelonJamCharacter.generated.h"
 
 class UInputComponent;
@@ -80,7 +82,7 @@ public:
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
 public:
-	// Is blue polarity
+	// Polarity
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Pull Settings")
 	EPolarity Polarity = EPolarity::Neutral;
 	
@@ -95,7 +97,10 @@ public:
 	UMaterialInterface* GreyMaterial;
 	
 	// Update Polarity
-	UFUNCTION(BlueprintCallable, Category = "Pull Settings")
+	UFUNCTION(Blueprintable, Category = "Pull Settings")
 	void UpdatePolarity();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Pull Settings")
+	void UpdateCrosshairPolarity();
 };
 

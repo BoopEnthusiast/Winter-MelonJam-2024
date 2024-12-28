@@ -5,8 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Components/SphereComponent.h"
-#include "Components/StaticMeshComponent.h"
 #include "EPolarity.h"
+#include "Components/WidgetComponent.h"
 #include "PolarityBlock.generated.h"
 
 

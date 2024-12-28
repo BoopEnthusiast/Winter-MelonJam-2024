@@ -14,8 +14,8 @@ APolarityBlock::APolarityBlock()
 
 	BlockMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BlockMesh"));
 	BlockMesh->Mobility = EComponentMobility::Stationary;
-	RootComponent = BlockMesh;
-
+	RootComponent = BlockMesh;	
+	
 	PullingArea = CreateDefaultSubobject<USphereComponent>(TEXT("PullingArea"));
 	PullingArea->Mobility = EComponentMobility::Stationary;
 	PullingArea->bAutoActivate = true;
@@ -72,11 +72,12 @@ void APolarityBlock::ApplyPolarityForce(float DeltaTime)
 		AWinter_MelonJamCharacter* PolarityCharacter = Cast<AWinter_MelonJamCharacter>(Character);
 		if (!PolarityCharacter)
 			continue;
-
-		if (PolarityCharacter->Polarity != Polarity || Polarity == EPolarity::Neutral)
+		if (PolarityCharacter->Polarity == EPolarity::Neutral || Polarity == EPolarity::Neutral)
 			continue;
 		
 		FVector Direction = GetActorLocation() - Character->GetActorLocation();
+		if (PolarityCharacter->Polarity == Polarity)
+			Direction = -Direction;
 		float Distance = Direction.Size();
 		float Radius = PullingArea->GetScaledSphereRadius();
 
