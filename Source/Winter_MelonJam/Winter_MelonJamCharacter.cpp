@@ -170,7 +170,7 @@ void AWinter_MelonJamCharacter::OnMovementModeChanged(EMovementMode PrevMovement
 			RespawnSetting,
 			this,
 			&AWinter_MelonJamCharacter::RespawnSettingStopped,
-			1.0f,
+			0.5f,
 			false
 		);
 	}
@@ -179,6 +179,7 @@ void AWinter_MelonJamCharacter::OnMovementModeChanged(EMovementMode PrevMovement
 
 void AWinter_MelonJamCharacter::RespawnSettingStopped()
 {
+	UE_LOG(LogTemp, Display, TEXT("Setting checkpoint!"));
 	RespawnTransform = GetTransform();
 }
 
