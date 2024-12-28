@@ -10,6 +10,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "Engine/LocalPlayer.h"
+#include "GameFramework/CharacterMovementComponent.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -54,6 +55,7 @@ void AWinter_MelonJamCharacter::NotifyControllerChanged()
 	}
 }
 
+
 void AWinter_MelonJamCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {	
 	// Set up action bindings
@@ -93,6 +95,7 @@ void AWinter_MelonJamCharacter::Move(const FInputActionValue& Value)
 	}
 }
 
+
 void AWinter_MelonJamCharacter::Look(const FInputActionValue& Value)
 {
 	// input is a Vector2D
@@ -106,6 +109,7 @@ void AWinter_MelonJamCharacter::Look(const FInputActionValue& Value)
 	}
 }
 
+
 void AWinter_MelonJamCharacter::BluePolarity(const FInputActionValue& Value)
 {
 	if (Polarity == EPolarity::Positive)
@@ -117,6 +121,7 @@ void AWinter_MelonJamCharacter::BluePolarity(const FInputActionValue& Value)
 	UpdatePolarity();
 }
 
+
 void AWinter_MelonJamCharacter::RedPolarity(const FInputActionValue& Value)
 {
 	if (Polarity == EPolarity::Negative)
@@ -127,6 +132,7 @@ void AWinter_MelonJamCharacter::RedPolarity(const FInputActionValue& Value)
 	}
 	UpdatePolarity();
 }
+
 
 void AWinter_MelonJamCharacter::UpdatePolarity()
 {
@@ -146,3 +152,58 @@ void AWinter_MelonJamCharacter::UpdatePolarity()
 	UpdateCrosshairPolarity();
 }
 
+
+void AWinter_MelonJamCharacter::OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode)
+{
+	if (PrevMovementMode == MOVE_Walking)
+	{
+		if (GetWorldTimerManager().IsTimerActive(RespawnSetting))
+		{
+			GetWorldTimerManager().ClearTimer(RespawnSetting);
+			UE_LOG(LogTemp, Warning, TEXT("Timer Stopped"));
+		}	
+	}
+	else if (PrevMovementMode == MOVE_Falling)
+	{
+		GetWorldTimerManager().SetTimer(
+			RespawnSetting,
+			this,
+			&AWinter_MelonJamCharacter::RespawnSettingStopped,
+			1.0f,
+			false
+		);
+	}
+}
+
+
+void AWinter_MelonJamCharacter::RespawnSettingStopped()
+{
+	RespawnTransform = GetTransform();
+}
+
+
+void AWinter_MelonJamCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	RespawnTransform = GetTransform();
+}
+
+
+
+void AWinter_MelonJamCharacter::Tick(float DeltaSeconds)
+{
+	Super::Tick(DeltaSeconds);
+	
+	if (GetTransform().GetLocation().Z < -300)
+	{
+		Respawn();
+	}
+}
+
+
+void AWinter_MelonJamCharacter::Respawn()
+{
+	SetActorTransform(RespawnTransform);
+	GetCharacterMovement()->Velocity = FVector::ZeroVector;
+}

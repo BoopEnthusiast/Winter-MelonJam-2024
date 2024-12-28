@@ -75,6 +75,25 @@ protected:
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 	// End of APawn interface
 
+	// Movement mode changed
+	virtual void OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode) override;
+
+	// Respawn position setting
+	FTransform RespawnTransform;
+
+	FTimerHandle RespawnSetting;
+
+	void RespawnSettingStopped();
+	
+	// Respawning
+	virtual void Tick(float DeltaSeconds) override;
+
+	virtual void BeginPlay() override;
+	
+	void Respawn();
+
+	void PrintRespawnTransform();
+	
 public:
 	/** Returns Mesh1P subobject **/
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
